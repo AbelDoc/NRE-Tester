@@ -1,7 +1,12 @@
 OBJ = $(OBJDIR)NRE_Main.o 
 OBJDIR = ../obj/
 
-all : $(OBJ)
+TESTER = Tester
+
+all : childs $(OBJ)
+
+childs:
+	@(cd $(TESTER) && $(MAKE))
 
 $(OBJDIR)%.o :  %.cpp
 	@$(CXX) -o $@ -c $< $(CFLAGS) $(INC)

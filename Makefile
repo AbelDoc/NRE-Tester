@@ -11,7 +11,7 @@ export LIBDIR = -L"C:/lib/MinGW64_7.3/x86_64-w64-mingw32/lib"
 OBJDIR = obj/
 BIN = bin/
 SRC = src
-OBJ = $(OBJDIR)NRE_Main.o 
+OBJ = $(OBJDIR)NRE_Main.o $(OBJDIR)Tester/InternalTest/NRE_InternalTest.o $(OBJDIR)Tester/TestSuite/NRE_TestSuite.o 
 OUT = NRE-Tester
 
 all : childs out
@@ -27,5 +27,8 @@ clean :
 	@echo "Clear of obj/"
 	@rm -r obj
 	@mkdir obj
+	@mkdir obj/Tester/
+	@mkdir obj/Tester/InternalTest/
+	@mkdir obj/Tester/TestSuite/
 	@echo "obj-Tree creation done."
 	@echo "Clean done."

@@ -7,9 +7,16 @@
      * @copyright CC-BY-NC-SA
      */
 
-    #include <iostream>
+    #include "Header/NRE_Tester.cpp"
 
-    int main(int, char**) {
+    using namespace NRE::Tester;
 
-        return 0;
+    TEST(TestCase, Test1) {
+        assertTrue(true);
+    }
+    TEST(TestCase, Test2) {
+        assertFalse(true);
+    }
+    TEST(TestCase, Test3) {
+        assertTrue(false, "Test3 has failed");
     }
