@@ -37,7 +37,7 @@
             }
 
             bool TestSuite::hasFailed() const {
-                return failLogs.empty();
+                return !failLogs.empty();
             }
 
             void TestSuite::runAllTests() {
