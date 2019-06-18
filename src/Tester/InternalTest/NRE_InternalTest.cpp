@@ -13,8 +13,20 @@
     namespace NRE {
         namespace Tester {
 
-            InternalTest::InternalTest() {
+            InternalTest::InternalTest(std::string const& c, std::string const& n) : testCase(c), testName(n) {
                 TestSuite::suiteInstance.addTest(this);
+            }
+
+            std::string const& InternalTest::getTestCase() const {
+                return testCase;
+            }
+
+            std::string const& InternalTest::getTestName() const {
+                return testName;
+            }
+
+            std::string InternalTest::getDetails() const {
+                return " : \n\tTestCase : " + getTestCase() + "\n\tTestName : " + getTestName();
             }
 
         }

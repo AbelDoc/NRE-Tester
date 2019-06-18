@@ -16,7 +16,7 @@
 
     #define TEST(Case, Name) class TEST_NAME(Case, Name) : public NRE::Tester::InternalTest {\
                                  public :\
-                                    TEST_NAME(Case, Name)() : NRE::Tester::InternalTest() {\
+                                    TEST_NAME(Case, Name)() : NRE::Tester::InternalTest(#Case, #Name) {\
                                     }\
                                     void internalTestBody() const override;\
                              };\

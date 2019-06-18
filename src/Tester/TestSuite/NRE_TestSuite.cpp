@@ -48,15 +48,59 @@
                 return suiteInstance.hasFailed();
             }
 
+            void fail(std::string const& message) {
+                TestSuite::suiteInstance.addLog(message);
+            }
+
+            void fail(const InternalTest* test, std::string const& message) {
+                TestSuite::suiteInstance.addLog(message + test->getDetails());
+            }
+
             void assertTrue(bool assert, std::string const& message) {
                 if (!assert) {
                     TestSuite::suiteInstance.addLog(message);
                 }
             }
 
+            void assertTrue(const InternalTest* test, bool assert, std::string const& message) {
+                if (!assert) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+
             void assertFalse(bool assert, std::string const& message) {
                 if (assert) {
                     TestSuite::suiteInstance.addLog(message);
+                }
+            }
+
+            void assertFalse(const InternalTest* test, bool assert, std::string const& message) {
+                if (assert) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+
+            void assertNull(void* ptr, std::string const& message) {
+                if (ptr != nullptr) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+
+            void assertNull(const InternalTest* test, void* ptr, std::string const& message) {
+                if (ptr != nullptr) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+
+            void assertNotNull(void* ptr, std::string const& message) {
+                if (ptr == nullptr) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+
+            void assertNotNull(const InternalTest* test, void* ptr, std::string const& message) {
+                if (ptr == nullptr) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
             }
 

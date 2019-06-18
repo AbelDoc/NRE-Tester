@@ -9,6 +9,7 @@
 
     #pragma once
 
+    #include <string>
 
      /**
      * @namespace NRE
@@ -25,12 +26,32 @@
              * @brief Describe an internal test used to register a user test inside the suite
              */
             class InternalTest {
+                private :   // Fields
+                    std::string testCase;   /**< The test case family */
+                    std::string testName;   /**< The test name */
+
                 public :    // Methods
                     //## Constructor ##//
                         /**
                          * Construct the internal test and register it into the suite
+                         * @param c the test case name
+                         * @param n the test name
                          */
-                        InternalTest();
+                        InternalTest(std::string const& c, std::string const& n);
+
+                    //## Getter ##//
+                        /**
+                         * @return the test case name
+                         */
+                        std::string const& getTestCase() const;
+                        /**
+                         * @return the test name
+                         */
+                        std::string const& getTestName() const;
+                        /**
+                         * @return the test details
+                         */
+                        std::string getDetails() const;
 
                     //## Methods ##//
                         /**

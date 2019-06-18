@@ -13,6 +13,8 @@
     #include <string>
     #include <iostream>
 
+    #include "../InternalTest/NRE_InternalTest.hpp"
+
      /**
      * @namespace NRE
      * @brief The NearlyRealEngine's global namespace
@@ -23,8 +25,6 @@
          * @brief Tester's API
          */
         namespace Tester {
-
-            class InternalTest;
 
             /**
              * @class TestSuite
@@ -69,16 +69,217 @@
             };
 
             /**
+             * Trigger a fail
+             * @param message the fail message
+             */
+            void fail(std::string const& message = "Fail");
+            /**
+             * Trigger a fail
+             * @param test    the test for detailed information
+             * @param message the fail message
+             */
+            void fail(const InternalTest* test, std::string const& message = "Fail");
+            /**
              * Except a true as input
              * @param assert  the assert to test
              * @param message the message if the assertion fail
              */
             void assertTrue(bool assert, std::string const& message = "True Assertion Failed");
             /**
+             * Except a true as input
+             * @param test    the test for detailed information
+             * @param assert  the assert to test
+             * @param message the message if the assertion fail
+             */
+            void assertTrue(const InternalTest* test, bool assert, std::string const& message = "True Assertion Failed");
+            /**
              * Except a false as input
              * @param assert  the assert to test
              * @param message the message if the assertion fail
              */
             void assertFalse(bool assert, std::string const& message = "False Assertion Failed");
+            /**
+             * Except a false as input
+             * @param test    the test for detailed information
+             * @param assert  the assert to test
+             * @param message the message if the assertion fail
+             */
+            void assertFalse(const InternalTest* test, bool assert, std::string const& message = "False Assertion Failed");
+            /**
+             * Except both input to be equals, use the == operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertEquals(T const& lhs, K const& rhs, std::string const& message = "Equals Assertion Failed") {
+                if (!(lhs == rhs)) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except both input to be equals, use the == operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Equals Assertion Failed") {
+                if (!(lhs == rhs)) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except both input to be not equals, use the != operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertNotEquals(T const& lhs, K const& rhs, std::string const& message = "NotEquals Assertion Failed") {
+                if (!(lhs == rhs)) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except both input to be not equals, use the != operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertNotEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "NotEquals Assertion Failed") {
+                if (!(lhs == rhs)) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except the first input to be lesser than the second, use the < operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertLesser(T const& lhs, K const& rhs, std::string const& message = "Lesser Assertion Failed") {
+                if (lhs < rhs) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except the first input to be lesser than the second, use the < operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertLesser(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Lesser Assertion Failed") {
+                if (lhs < rhs) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except the first input to be greater than the second, use the > operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertGreater(T const& lhs, K const& rhs, std::string const& message = "Greater Assertion Failed") {
+                if (lhs > rhs) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except the first input to be greater than the second, use the > operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertGreater(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Greater Assertion Failed") {
+                if (lhs > rhs) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except the first input to be lesser than the second, use the <= operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertLesserOrEquals(T const& lhs, K const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
+                if (lhs <= rhs) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except the first input to be lesser than the second, use the <= operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertLesserOrEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
+                if (lhs <= rhs) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except the first input to be greater than the second, use the >= operator
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertGreaterOrEquals(T const& lhs, K const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
+                if (lhs >= rhs) {
+                    TestSuite::suiteInstance.addLog(message);
+                }
+            }
+            /**
+             * Except the first input to be greater than the second, use the >= operator
+             * @param test    the test for detailed information
+             * @param lhs     the left input
+             * @param rhs     the right input
+             * @param message the message if the assertion fail
+             */
+            template <class T, class K>
+            void assertGreaterOrEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
+                if (lhs >= rhs) {
+                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                }
+            }
+            /**
+             * Except the input to be a nullptr
+             * @param ptr     the pointer to test
+             * @param message the message if the assertion fail
+             */
+            void assertNull(void* ptr, std::string const& message = "Null Assertion Failed");
+            /**
+             * Except the input to be a nullptr
+             * @param test    the test for detailed information
+             * @param ptr     the pointer to test
+             * @param message the message if the assertion fail
+             */
+            void assertNull(const InternalTest* test, void* ptr, std::string const& message = "Null Assertion Failed");
+            /**
+             * Except the input to not be a nullptr
+             * @param ptr     the pointer to test
+             * @param message the message if the assertion fail
+             */
+            void assertNotNull(void* ptr, std::string const& message = "NotNull Assertion Failed");
+            /**
+             * Except the input to not be a nullptr
+             * @param test    the test for detailed information
+             * @param ptr     the pointer to test
+             * @param message the message if the assertion fail
+             */
+            void assertNotNull(const InternalTest* test, void* ptr, std::string const& message = "NotNull Assertion Failed");
         }
     }
