@@ -5,7 +5,8 @@ It's base on GoogleTest model.
 ## Features
 
 - Simple test design
-    You only need to write your test, include the API, compile and you're good to go.  
+    You only need to write your test, include the API, compile and you're good to go.
+
         #include <Header/NRE_Tester.cpp>
 
         TEST(FirstTestCase, FirstTest) {
@@ -19,6 +20,7 @@ It's base on GoogleTest model.
         TEST(SecondTestCase, FirstTest) {
             // ...
         }
+
     No need to write a main, or to call your tests. Only include NRE_Tester.cpp which will do all the work for you.
 
 - Embedded Assert  
