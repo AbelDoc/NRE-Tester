@@ -25,7 +25,11 @@
 
             void TestSuite::runAll() {
                 for (InternalTest* test : suite) {
-                    test->internalTestBody();
+                    try {
+                        test->internalTestBody();
+                    } catch (std::exception e) {
+                        fail(test, "Fail by exception : " + std::string(e.what()));
+                    }
                 }
                 if (hasFailed()) {
                     std::cout << "Test failed : " << failLogs.size() << std::endl;
