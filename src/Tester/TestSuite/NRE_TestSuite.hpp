@@ -111,8 +111,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertEquals(T const& lhs, K const& rhs, std::string const& message = "Equals Assertion Failed") {
+            template <class T>
+            void assertEquals(T const& lhs, T const& rhs, std::string const& message = "Equals Assertion Failed") {
                 if (!(lhs == rhs)) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -124,8 +124,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Equals Assertion Failed") {
+            template <class T>
+            void assertEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Equals Assertion Failed") {
                 if (!(lhs == rhs)) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
@@ -136,8 +136,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertNotEquals(T const& lhs, K const& rhs, std::string const& message = "NotEquals Assertion Failed") {
+            template <class T>
+            void assertNotEquals(T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
                 if (!(lhs == rhs)) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -149,8 +149,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertNotEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "NotEquals Assertion Failed") {
+            template <class T>
+            void assertNotEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
                 if (!(lhs == rhs)) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
@@ -161,8 +161,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertLesser(T const& lhs, K const& rhs, std::string const& message = "Lesser Assertion Failed") {
+            template <class T>
+            void assertLesser(T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
                 if (lhs < rhs) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -174,8 +174,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertLesser(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Lesser Assertion Failed") {
+            template <class T>
+            void assertLesser(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
                 if (lhs < rhs) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
@@ -186,8 +186,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertGreater(T const& lhs, K const& rhs, std::string const& message = "Greater Assertion Failed") {
+            template <class T>
+            void assertGreater(T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
                 if (lhs > rhs) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -199,8 +199,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertGreater(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Greater Assertion Failed") {
+            template <class T>
+            void assertGreater(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
                 if (lhs > rhs) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
@@ -211,8 +211,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertLesserOrEquals(T const& lhs, K const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
+            template <class T>
+            void assertLesserOrEquals(T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
                 if (lhs <= rhs) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -224,8 +224,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertLesserOrEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
+            template <class T>
+            void assertLesserOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
                 if (lhs <= rhs) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
@@ -236,8 +236,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertGreaterOrEquals(T const& lhs, K const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
+            template <class T>
+            void assertGreaterOrEquals(T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
                 if (lhs >= rhs) {
                     TestSuite::suiteInstance.addLog(message);
                 }
@@ -249,8 +249,8 @@
              * @param rhs     the right input
              * @param message the message if the assertion fail
              */
-            template <class T, class K>
-            void assertGreaterOrEquals(const InternalTest* test, T const& lhs, K const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
+            template <class T>
+            void assertGreaterOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
                 if (lhs >= rhs) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
