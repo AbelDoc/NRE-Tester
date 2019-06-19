@@ -1,0 +1,14 @@
+@startuml
+    class InternalTest {
+        std::string testCase
+        std::string testName
+    }
+    class UserDefinedTest {
+    }
+    class TestSuite {
+    }
+    TestSuite -down- "*" InternalTest : suite
+    UserDefinedTest -up-|> InternalTest
+    note "UserDefinedTest is created by using\nthe Test(Case, Name) macro" as N1
+    UserDefinedTest -left- N1
+@enduml
