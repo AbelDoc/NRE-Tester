@@ -138,7 +138,7 @@
              */
             template <class T>
             void assertNotEquals(T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
-                if (!(lhs == rhs)) {
+                if (!(lhs != rhs)) {
                     TestSuite::suiteInstance.addLog(message);
                 }
             }
@@ -151,7 +151,7 @@
              */
             template <class T>
             void assertNotEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
-                if (!(lhs == rhs)) {
+                if (!(lhs != rhs)) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
             }
