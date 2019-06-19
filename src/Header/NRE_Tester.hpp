@@ -20,5 +20,5 @@
                                     }\
                                     void internalTestBody() const override;\
                              };\
-                             TEST_NAME(Case, Name) tCase##Name;\
+                             TEST_NAME(Case, Name) t##Case##Name;\
                              void TEST_NAME(Case, Name)::internalTestBody() const

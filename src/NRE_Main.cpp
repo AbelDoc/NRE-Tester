@@ -17,6 +17,6 @@
     TEST(TestCase, Test2) {
         assertFalse(this, true);
     }
-    TEST(TestCase, Test3) {
-        assertTrue(false, "Test3 has failed");
+    TEST(Case, Test1) {
+        assertTrue(false, "Test1 has failed");
     }
