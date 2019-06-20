@@ -27,7 +27,7 @@
                 for (InternalTest* test : suite) {
                     try {
                         test->internalTestBody();
-                    } catch (std::exception e) {
+                    } catch (std::exception const& e) {
                         fail(test, "Fail by exception : " + std::string(e.what()));
                     }
                 }
