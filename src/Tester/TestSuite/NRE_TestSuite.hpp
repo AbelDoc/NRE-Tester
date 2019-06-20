@@ -176,7 +176,7 @@
              */
             template <class T>
             void assertLesser(T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
-                if (lhs >= rhs) {
+                if (!(lhs < rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -193,7 +193,7 @@
              */
             template <class T>
             void assertLesser(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
-                if (lhs >= rhs) {
+                if (!(lhs < rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -209,7 +209,7 @@
              */
             template <class T>
             void assertGreater(T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
-                if (lhs <= rhs) {
+                if (!(lhs > rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -226,7 +226,7 @@
              */
             template <class T>
             void assertGreater(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
-                if (lhs <= rhs) {
+                if (!(lhs > rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -242,7 +242,7 @@
              */
             template <class T>
             void assertLesserOrEquals(T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
-                if (lhs > rhs) {
+                if (!(lhs <= rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -259,7 +259,7 @@
              */
             template <class T>
             void assertLesserOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
-                if (lhs > rhs) {
+                if (!(lhs <= rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -275,7 +275,7 @@
              */
             template <class T>
             void assertGreaterOrEquals(T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
-                if (lhs < rhs) {
+                if (!(lhs >= rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
@@ -292,7 +292,7 @@
              */
             template <class T>
             void assertGreaterOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
-                if (lhs < rhs) {
+                if (!(lhs >= rhs)) {
                     std::stringstream lhsStr;
                     std::stringstream rhsStr;
                     lhsStr << lhs;
