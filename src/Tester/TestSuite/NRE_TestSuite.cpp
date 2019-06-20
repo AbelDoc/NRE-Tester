@@ -24,13 +24,17 @@
             }
 
             void TestSuite::runAll() {
+                std::size_t counter = 0;
                 for (InternalTest* test : suite) {
+                    std::cout << "\r" << counter << "/" << suite.size();
+                    counter++;
                     try {
                         test->internalTestBody();
                     } catch (std::exception const& e) {
                         fail(test, "Fail by exception : " + std::string(e.what()));
                     }
                 }
+                std::cout << "\r" << counter << "/" << suite.size() << std::endl;
                 if (hasFailed()) {
                     std::cout << "Test failed : " << failLogs.size() << std::endl;
                     std::cout << "Logs : " << std::endl;
