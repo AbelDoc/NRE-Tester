@@ -11,6 +11,7 @@
 
     #include <vector>
     #include <string>
+    #include <sstream>
     #include <iostream>
 
     #include "../InternalTest/NRE_InternalTest.hpp"
@@ -114,7 +115,11 @@
             template <class T>
             void assertEquals(T const& lhs, T const& rhs, std::string const& message = "Equals Assertion Failed") {
                 if (!(lhs == rhs)) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -127,7 +132,11 @@
             template <class T>
             void assertEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Equals Assertion Failed") {
                 if (!(lhs == rhs)) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -139,7 +148,9 @@
             template <class T>
             void assertNotEquals(T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
                 if (!(lhs != rhs)) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    lhsStr << lhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : not " + lhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -152,7 +163,9 @@
             template <class T>
             void assertNotEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "NotEquals Assertion Failed") {
                 if (!(lhs != rhs)) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    lhsStr << lhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : not " + lhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -164,7 +177,11 @@
             template <class T>
             void assertLesser(T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
                 if (lhs >= rhs) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : < " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -177,7 +194,11 @@
             template <class T>
             void assertLesser(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser Assertion Failed") {
                 if (lhs >= rhs) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : < " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -189,7 +210,11 @@
             template <class T>
             void assertGreater(T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
                 if (lhs <= rhs) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : > " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -202,7 +227,11 @@
             template <class T>
             void assertGreater(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater Assertion Failed") {
                 if (lhs <= rhs) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : > " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -214,7 +243,11 @@
             template <class T>
             void assertLesserOrEquals(T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
                 if (lhs > rhs) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : <= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -227,7 +260,11 @@
             template <class T>
             void assertLesserOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Lesser or Equals Assertion Failed") {
                 if (lhs > rhs) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : <= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -239,7 +276,11 @@
             template <class T>
             void assertGreaterOrEquals(T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
                 if (lhs < rhs) {
-                    TestSuite::suiteInstance.addLog(message);
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : >= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**
@@ -252,7 +293,11 @@
             template <class T>
             void assertGreaterOrEquals(const InternalTest* test, T const& lhs, T const& rhs, std::string const& message = "Greater or Equals Assertion Failed") {
                 if (lhs < rhs) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    std::stringstream lhsStr;
+                    std::stringstream rhsStr;
+                    lhsStr << lhs;
+                    rhsStr << rhs;
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : >= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
                 }
             }
             /**

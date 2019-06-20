@@ -62,49 +62,49 @@
 
             void assertTrue(bool assert, std::string const& message) {
                 if (!assert) {
-                    TestSuite::suiteInstance.addLog(message);
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : true\n\tGet : false");
                 }
             }
 
             void assertTrue(const InternalTest* test, bool assert, std::string const& message) {
                 if (!assert) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : true\n\tGet : false");
                 }
             }
 
             void assertFalse(bool assert, std::string const& message) {
                 if (assert) {
-                    TestSuite::suiteInstance.addLog(message);
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : false\n\tGet : true");
                 }
             }
 
             void assertFalse(const InternalTest* test, bool assert, std::string const& message) {
                 if (assert) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : false\n\tGet : true");
                 }
             }
 
             void assertNull(const void* ptr, std::string const& message) {
                 if (ptr != nullptr) {
-                    TestSuite::suiteInstance.addLog(message);
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : nullptr\n\tGet : " + reinterpret_cast <const char*> (&ptr));
                 }
             }
 
             void assertNull(const InternalTest* test, const void* ptr, std::string const& message) {
                 if (ptr != nullptr) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : nullptr\n\tGet : " + reinterpret_cast <const char*> (&ptr));
                 }
             }
 
             void assertNotNull(const void* ptr, std::string const& message) {
                 if (ptr == nullptr) {
-                    TestSuite::suiteInstance.addLog(message);
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : not nullptr\n\tGet : nullptr");
                 }
             }
 
             void assertNotNull(const InternalTest* test, const void* ptr, std::string const& message) {
                 if (ptr == nullptr) {
-                    TestSuite::suiteInstance.addLog(message + test->getDetails());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : not nullptr\n\tGet : nullptr");
                 }
             }
 
