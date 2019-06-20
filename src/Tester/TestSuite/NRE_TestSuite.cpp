@@ -84,25 +84,25 @@
                 }
             }
 
-            void assertNull(void* ptr, std::string const& message) {
+            void assertNull(const void* ptr, std::string const& message) {
                 if (ptr != nullptr) {
                     TestSuite::suiteInstance.addLog(message);
                 }
             }
 
-            void assertNull(const InternalTest* test, void* ptr, std::string const& message) {
+            void assertNull(const InternalTest* test, const void* ptr, std::string const& message) {
                 if (ptr != nullptr) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }
             }
 
-            void assertNotNull(void* ptr, std::string const& message) {
+            void assertNotNull(const void* ptr, std::string const& message) {
                 if (ptr == nullptr) {
                     TestSuite::suiteInstance.addLog(message);
                 }
             }
 
-            void assertNotNull(const InternalTest* test, void* ptr, std::string const& message) {
+            void assertNotNull(const InternalTest* test, const void* ptr, std::string const& message) {
                 if (ptr == nullptr) {
                     TestSuite::suiteInstance.addLog(message + test->getDetails());
                 }

@@ -260,26 +260,26 @@
              * @param ptr     the pointer to test
              * @param message the message if the assertion fail
              */
-            void assertNull(void* ptr, std::string const& message = "Null Assertion Failed");
+            void assertNull(const void* ptr, std::string const& message = "Null Assertion Failed");
             /**
              * Except the input to be a nullptr
              * @param test    the test for detailed information
              * @param ptr     the pointer to test
              * @param message the message if the assertion fail
              */
-            void assertNull(const InternalTest* test, void* ptr, std::string const& message = "Null Assertion Failed");
+            void assertNull(const InternalTest* test, const void* ptr, std::string const& message = "Null Assertion Failed");
             /**
              * Except the input to not be a nullptr
              * @param ptr     the pointer to test
              * @param message the message if the assertion fail
              */
-            void assertNotNull(void* ptr, std::string const& message = "NotNull Assertion Failed");
+            void assertNotNull(const void* ptr, std::string const& message = "NotNull Assertion Failed");
             /**
              * Except the input to not be a nullptr
              * @param test    the test for detailed information
              * @param ptr     the pointer to test
              * @param message the message if the assertion fail
              */
-            void assertNotNull(const InternalTest* test, void* ptr, std::string const& message = "NotNull Assertion Failed");
+            void assertNotNull(const InternalTest* test, const void* ptr, std::string const& message = "NotNull Assertion Failed");
         }
     }
