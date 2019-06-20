@@ -181,7 +181,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : < " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : < " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -198,7 +198,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : < " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : < " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -214,7 +214,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : > " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : > " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -231,7 +231,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : > " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : > " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -247,7 +247,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : <= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : <= " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -264,7 +264,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : <= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : <= " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -280,7 +280,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : >= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + "\n\tExcepted : >= " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
@@ -297,7 +297,7 @@
                     std::stringstream rhsStr;
                     lhsStr << lhs;
                     rhsStr << rhs;
-                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : >= " + lhsStr.str() + "\n\tGet : " + rhsStr.str());
+                    TestSuite::suiteInstance.addLog(message + test->getDetails() + "\n\tExcepted : >= " + rhsStr.str() + "\n\tGet : " + lhsStr.str());
                 }
             }
             /**
