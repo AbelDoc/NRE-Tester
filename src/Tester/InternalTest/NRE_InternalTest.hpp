@@ -38,6 +38,12 @@
                          * @param n the test name
                          */
                         InternalTest(std::string const& c, std::string const& n);
+    
+                    //## Deconstructor ##//
+                        /**
+                         * InternalTest Deconstructor
+                         */
+                        virtual ~InternalTest() = default;
 
                     //## Getter ##//
                         /**
